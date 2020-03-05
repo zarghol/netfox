@@ -101,8 +101,6 @@ public extension UIDevice
 
 }
 
-#endif
-
 protocol DataCleaner {
 
     func clearData(sourceView: UIView, originingIn sourceRect: CGRect?, then: @escaping () -> ())
@@ -133,3 +131,5 @@ extension DataCleaner where Self: UIViewController {
         self.present(actionSheetController, animated: true, completion: nil)
     }
 }
+
+#endif
