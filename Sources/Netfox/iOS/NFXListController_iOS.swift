@@ -36,7 +36,9 @@ class NFXListController_iOS: NFXListController, UITableViewDelegate, UITableView
         
         self.tableView.register(NFXListCell.self, forCellReuseIdentifier: NSStringFromClass(NFXListCell.self))
 
-        self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.NFXClose(), style: .plain, target: self, action: #selector(NFXListController_iOS.closeButtonPressed))
+        if self.navigationController?.viewControllers.count == 1 {
+            self.navigationItem.leftBarButtonItem = UIBarButtonItem(image: UIImage.NFXClose(), style: .plain, target: self, action: #selector(NFXListController_iOS.closeButtonPressed))
+        }
 
         let rightButtons = [
             UIBarButtonItem(barButtonSystemItem: .trash, target: self, action: #selector(NFXListController_iOS.trashButtonPressed)),
@@ -91,6 +93,10 @@ class NFXListController_iOS: NFXListController, UITableViewDelegate, UITableView
     {
         super.viewWillAppear(animated)
         reloadTableViewData()
+    }
+
+    override func viewWillDisappear(_ animated: Bool) {
+        NFX.sharedInstance().presented = false
     }
 
     @objc func settingsButtonPressed()
