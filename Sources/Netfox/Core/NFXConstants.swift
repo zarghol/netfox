@@ -11,7 +11,7 @@ import UIKit
 typealias NFXColor = UIColor
 typealias NFXFont = UIFont
 typealias NFXImage = UIImage
-typealias NFXViewController = UIViewController
+public typealias NFXViewController = UIViewController
     
 #elseif os(OSX)
 import Cocoa

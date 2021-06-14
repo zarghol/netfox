@@ -12,11 +12,11 @@ import UIKit
 import Cocoa
 #endif
 
-class NFXGenericController: NFXViewController
+public class NFXGenericController: NFXViewController
 {
     var selectedModel: NFXHTTPModel = NFXHTTPModel()
 
-    override func viewDidLoad()
+    public override func viewDidLoad()
     {
         super.viewDidLoad()
     #if os(iOS)
