@@ -39,7 +39,11 @@ class NFXSettingsController_iOS: NFXSettingsController, UITableViewDelegate, UIT
         self.tableView.delegate = self
         self.tableView.dataSource = self
         self.tableView.alwaysBounceVertical = false
-        self.tableView.backgroundColor = UIColor.clear
+        if #available(iOS 13.0, *) {
+            self.tableView.backgroundColor = UIColor.systemBackground
+        } else {
+            self.tableView.backgroundColor = UIColor.white
+        }
         self.tableView.tableFooterView = UIView(frame: CGRect.zero)
         self.tableView.tableFooterView?.isHidden = true
         self.view.addSubview(self.tableView)
@@ -164,7 +168,11 @@ class NFXSettingsController_iOS: NFXSettingsController, UITableViewDelegate, UIT
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView?
     {
         let headerView = UIView()
-        headerView.backgroundColor = UIColor.NFXGray95Color()
+        if #available(iOS 13.0, *) {
+            headerView.backgroundColor = UIColor.systemGroupedBackground
+        } else {
+            headerView.backgroundColor = UIColor.lightGray
+        }
         
         switch section {
         case 1:

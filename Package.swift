@@ -4,6 +4,10 @@ import PackageDescription
 
 let package = Package(
     name: "Netfox",
+    platforms: [
+        .iOS(.v12),
+        .macOS(.v10_15)
+    ],
     products: [
         .library(name: "Netfox", targets: ["Netfox"])
     ],
